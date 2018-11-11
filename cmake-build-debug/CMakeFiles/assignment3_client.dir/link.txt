@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/assignment3_client.dir/client.c.o  -o assignment3_client 

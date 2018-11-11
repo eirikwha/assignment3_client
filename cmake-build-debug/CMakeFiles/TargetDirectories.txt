@@ -1,0 +1,3 @@
+/home/eirik/devel/indmek/assignment3_client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/eirik/devel/indmek/assignment3_client/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/eirik/devel/indmek/assignment3_client/cmake-build-debug/CMakeFiles/assignment3_client.dir
