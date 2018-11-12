@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
         error("ERROR connecting");
     }
 
-    printf("Please enter the message: ");
+    printf("Please enter the message to send: ");
     bzero(buffer, 256);
     fgets(buffer, 256, stdin);
     int i;
@@ -75,20 +75,29 @@ int main(int argc, char* argv[]) {
         usleep(usecs);
     }
 
+
     if (n < 0) {
         error("ERROR writing to socket");
     }
 
     bzero(buffer, 256);
-    n = read(sockfd, buffer, 256);
+    read(sockfd, buffer, 256);
 
-    printf("Here is the message: %s\n", buffer);
+    //printf("Here is the message: %s\n", buffer);
+    printf("\nRecieving an encrypted message: %s\n", buffer);
+    sleep(2);
+    printf("\nDecrypting and sending back...");
+    for (i=0; i<strlen(buffer); i++) {
+        *letter = buffer[i] + 1; // shift char by one, i.e A->B.
+        write(sockfd, letter, 1);
+        fflush(stdout);
+        usleep(usecs);
+    }
 
     if (n < 0) {
         error("ERROR reading from socket");
     }
 
     printf("%s\n", buffer);
-
     return 0;
 }
